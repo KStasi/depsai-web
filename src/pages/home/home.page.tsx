@@ -1,21 +1,26 @@
-import { Form } from '@components/Form/index';
-import { Header } from '@components/Header/index';
+import { Content } from '@components/Content/index';
 import { Sidebar } from '@components/Sidebar/index';
+import { Table } from '@components/Table/index';
+import { WagmiStore } from '@modules/wagmi';
+import { withStores } from '@store';
+import { WithStores } from '@types';
+import { observer } from 'mobx-react-lite';
 
-export const HomePage = () => {
+const stores = {
+  wagmi: WagmiStore
+};
+
+const HomePageView: WithStores<typeof stores> = ({ wagmi }) => {
+  const accIsConnected = wagmi.account.status === 'connected';
+
   return (
     <div className="container">
-      <Sidebar />
-      <div className="content">
-        <Header />
-        <div className="form">
-          <Form />
-          <button className="btn-link">
-            <i className="btn-icon icon-back" />
-            back
-          </button>
-        </div>
-      </div>
+      {accIsConnected && <Sidebar />}
+      <Content>
+        <Table />
+      </Content>
     </div>
   );
 };
+
+export const HomePage = withStores(stores)(observer(HomePageView));

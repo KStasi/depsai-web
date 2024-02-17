@@ -1,6 +1,7 @@
 export const Table = () => {
   return (
     <div className="form-content">
+      <button className="form-btn btn btn-primary">Create new</button>
       <table className="table">
         <thead className="table-head">
           <tr className="table-tr">

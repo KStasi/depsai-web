@@ -20,19 +20,27 @@ export const Deposit = () => {
   };
 
   return (
-    <div className="form-content">
-      <div className="table-container">
-        <h4 className="form-header">Address</h4>
-        <span className="form-info">Your current account address. Share it to receive funds.</span>
-        <div className="form-link">238234u2o387or9h745h374895o28c47r29o</div>
-        <button className="btn-copy" onClick={handleCopy}>
-          {buttonText}
-        </button>
-        <span className="form-sublink">QRCode</span>
-        <div className="form-qr-wrapper">
-          <QRCode value="https://akash.network/docs/architecture/overview/" />
+    <>
+      <button className="btn-link">
+        <i className="btn-icon icon-back" />
+        back
+      </button>
+      <div className="form-content">
+        <div className="table-container">
+          <h4 className="form-header">Address</h4>
+          <span className="form-info">
+            Your current account address. Share it to receive funds.
+          </span>
+          <div className="form-link">238234u2o387or9h745h374895o28c47r29o</div>
+          <button className="btn-copy" onClick={handleCopy}>
+            {buttonText}
+          </button>
+          <span className="form-sublink">QRCode</span>
+          <div className="form-qr-wrapper">
+            <QRCode value="https://akash.network/docs/architecture/overview/" />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
