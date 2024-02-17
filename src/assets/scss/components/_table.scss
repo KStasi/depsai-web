@@ -8,6 +8,12 @@
   background-color: rgba(0, 172, 237, 0.2);
 }
 
+.table-step {
+  margin: 0 40px;
+  padding: 20px;
+  min-height: calc(100vh - 250px);
+}
+
 .table-container {
   background-color: $main-color;
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));

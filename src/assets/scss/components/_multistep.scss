@@ -104,3 +104,74 @@
     }
   }
 }
+
+.multistep-title {
+  display: block;
+  font-family: 'Orbitron', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: $text-size-lg;
+  color: $text-color;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+.multistep-form {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.multistep-form-grid {
+  margin: 20px 0;
+  display: grid;
+  align-items: flex-end;
+  grid-template-columns: calc(50% - 58px) calc(50% - 58px) 35px;
+  column-gap: 40px;
+  width: 100%;
+}
+
+.multistep-info {
+  display: block;
+  font-family: 'Orbitron', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  color: $text-color;
+  letter-spacing: 3px;
+  margin: 10px 0;
+}
+
+.multistep-list {
+  display: flex;
+  flex-direction: column;
+  background-color: $text-color;
+  padding: 20px;
+}
+
+.multistep-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-family: 'Orbitron', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  padding: 5px 0;
+}
+
+.multistep-list-header {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: capitalize;
+  border-bottom: 1px dotted $main-color;
+}
+
+.multistep-list-footer {
+  font-size: $text-size;
+  font-weight: bold;
+  text-transform: capitalize;
+  border-top: 1px dotted $main-color;
+}
