@@ -1,26 +1,23 @@
-import { Connect } from '@components/example';
-import { Balances } from '@components/example/wagmi/balances';
+import { Deposit } from '@components/Deposit/index';
+import { Form } from '@components/Form/index';
+import { Header } from '@components/Header/index';
+import { Sidebar } from '@components/Sidebar/index';
+import { Table } from '@components/Table/index';
 
 export const HomePage = () => {
   return (
     <div className="container">
-      <aside className="sidebar-wrapper">
-        <Balances />
-        <div className="btns-container">
-          <button className="btn btn-primary">replenish</button>
-          <button className="btn btn-secondary">withdraw</button>
-        </div>
-      </aside>
+      <Sidebar />
       <div className="content">
-        <header className="header">
-          <h1 className="header-title">Title</h1>
-          <Connect />
-        </header>
+        <Header />
         <div className="form">
-          <label className="form-label" htmlFor="amount">
-            Amount
-          </label>
-          <input className="form-input" type="text" id="amount" />
+          <Deposit />
+          {/* <Table /> */}
+          {/* <Form /> */}
+          <button className="btn-link">
+            <i className="btn-icon icon-back" />
+            back
+          </button>
         </div>
       </div>
     </div>

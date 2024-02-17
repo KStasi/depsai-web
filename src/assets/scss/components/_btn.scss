@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   padding: 8px 12px;
-  font-family: "Orbitron", sans-serif;
+  font-family: 'Orbitron', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: $text-size;
@@ -50,9 +50,8 @@
 
   &:hover {
     text-shadow: 0 0 20px $secondary-color, 0 0 50px rgba(0, 255, 0, 0.9),
-      0 0 75px rgba(0, 255, 0, 0.8), 0 0 76px rgba(0, 255, 0, 0.7),
-      0 0 77px rgba(0, 255, 0, 0.6), 0 0 78px rgba(0, 255, 0, 0.5),
-      0 0 79px rgba(0, 255, 0, 0.4), 0 0 80px rgba(0, 255, 0, 0.3),
+      0 0 75px rgba(0, 255, 0, 0.8), 0 0 76px rgba(0, 255, 0, 0.7), 0 0 77px rgba(0, 255, 0, 0.6),
+      0 0 78px rgba(0, 255, 0, 0.5), 0 0 79px rgba(0, 255, 0, 0.4), 0 0 80px rgba(0, 255, 0, 0.3),
       0 0 85px rgba(0, 255, 0, 0.2), 0 0 99px rgba(0, 255, 0, 0.1);
   }
 }
@@ -75,7 +74,7 @@
 }
 
 .btn-main {
-  font-family: "Orbitron", sans-serif;
+  font-family: 'Orbitron', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: $text-size;
@@ -96,7 +95,7 @@
   &::before,
   &::after {
     position: absolute;
-    content: "";
+    content: '';
     width: 20%;
     height: 20%;
     border: 2px solid;
@@ -142,7 +141,7 @@
 }
 
 .btn-manage {
-  font-family: "Orbitron", sans-serif;
+  font-family: 'Orbitron', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -162,5 +161,66 @@
   &:focus {
     outline: none;
     cursor: pointer;
+  }
+}
+
+.btn-link {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-family: 'Orbitron', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  color: $text-color;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-transform: capitalize;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+}
+
+.btn-copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $text-color;
+  border: 1px solid $text-color;
+  font-family: 'Orbitron', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  color: $main-color;
+  padding: 5px 8px;
+  margin-left: auto;
+  cursor: pointer;
+
+  &:hover {
+    filter: invert(1);
+  }
+
+  &:focus {
+    outline: none;
   }
 }

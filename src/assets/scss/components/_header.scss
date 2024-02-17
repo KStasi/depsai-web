@@ -7,7 +7,7 @@
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 2;
   background-color: $main-color;
   height: 80px;
   min-height: 80px;
@@ -20,7 +20,7 @@
   justify-content: center;
   font-family: 'Orbitron', sans-serif;
   font-size: $text-size-lg;
-  font-style: normal;
+  font-style: italic;
   font-weight: normal;
   letter-spacing: 5px;
   color: $text-color;

@@ -8,14 +8,22 @@ const stores = {
 };
 
 const ConnectView: WithStores<typeof stores> = ({ wagmi }) => {
+  const accIsConnected = wagmi.account.status == 'connected';
+
   return (
     <div className="header-container">
       <span className="header-address" title={wagmi.account.address}>
         {wagmi.account.address}
       </span>
-      <button onClick={async () => wagmi.connect()} className="btn-main">
-        Connect wallet
-      </button>
+      {accIsConnected ? (
+        <button onClick={async () => wagmi.disconnect()} className="btn-main">
+          Disconnect
+        </button>
+      ) : (
+        <button onClick={async () => wagmi.connect()} className="btn-main">
+          Connect wallet
+        </button>
+      )}
     </div>
   );
 };
