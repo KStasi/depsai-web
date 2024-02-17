@@ -11,13 +11,20 @@ const stores = {
 const BalancesView: WithStores<typeof stores> = ({ balances }) => {
   return (
     <Box>
-      <Typography variant="body1">Balances</Typography>
-      {balances.tokens.map(token => (
-        <Box>
-          <Typography variant="body1">{token.address}</Typography>
-          <Typography variant="body1">{balances.getBalance(token)}</Typography>
-        </Box>
-      ))}
+      <h4 className="sidebar-title">User Balance</h4>
+      <ul className="sidebar-list">
+        {balances.tokens.map(token => (
+          <li className="sidebar-item">
+            <span className="sidebar-address" title={token.address}>
+              {token.address}
+            </span>
+            <span className="sidebar-balance">
+              {balances.getBalance(token)}
+              <i className="sidebar-symbol">{token.symbol}</i>
+            </span>
+          </li>
+        ))}
+      </ul>
     </Box>
   );
 };

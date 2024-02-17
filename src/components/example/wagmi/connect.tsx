@@ -10,39 +10,14 @@ const stores = {
 
 const ConnectView: WithStores<typeof stores> = ({ wagmi }) => {
   return (
-    <Box>
-      <Typography variant="body1">{wagmi.account.address}</Typography>
-      <Box
-        sx={{
-          display: 'flex',
-          gap: 2
-        }}
-      >
-        {wagmi.chains.map(chain => (
-          <Button key={chain.id} onClick={async () => wagmi.switchChain(chain)} variant="contained">
-            {chain.name}
-          </Button>
-        ))}
-
-        <Button onClick={async () => wagmi.connect()} variant="contained">
-          Connect
-        </Button>
-        <Button onClick={async () => wagmi.disconnect()} variant="contained">
-          Disconnect
-        </Button>
-
-        <Button
-          onClick={async () =>
-            wagmi.walletClient?.signMessage({
-              message: 'Hello World'
-            })
-          }
-          variant="contained"
-        >
-          Sign Message
-        </Button>
-      </Box>
-    </Box>
+    <div className="header-container">
+      <span className="header-address" title={wagmi.account.address}>
+        {wagmi.account.address}
+      </span>
+      <button onClick={async () => wagmi.connect()} className="btn-main">
+        Connect wallet
+      </button>
+    </div>
   );
 };
 

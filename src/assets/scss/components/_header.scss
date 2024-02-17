@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 40px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: $main-color;
+  height: 80px;
+  min-height: 80px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: $text-size-lg;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 5px;
+  color: $text-color;
+  margin: 0;
+}
+
+.header-address {
+  display: block;
+  font-family: 'Orbitron', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $text-size;
+  color: $text-color;
+  margin-right: 10px;
+  width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}

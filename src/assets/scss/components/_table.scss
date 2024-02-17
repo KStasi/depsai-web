@@ -1,0 +1,54 @@
+.table {
+  background-color: $main-color;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
+  box-shadow: 0 0 5px $primary-color;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $primary-color;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: rgba(0, 172, 237, 0.2);
+}
+
+.table-head {
+}
+
+.table-tr {
+  &:last-child {
+    .table-td {
+      padding-bottom: 14px;
+    }
+  }
+}
+
+.table-th {
+  font-weight: bold;
+  padding: 14px 0;
+}
+
+.table-th,
+.table-td {
+  font-family: "Orbitron", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  color: $text-color;
+  text-align: center;
+}
+
+.table-td {
+  color: $primary-color;
+  text-shadow: 0px 0px 4px $primary-color;
+  padding: 4px 0;
+}
+
+.table-link {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+
+  &:hover {
+    text-underline-offset: 8px;
+    transition: 0.5s ease-in-out;
+  }
+}
