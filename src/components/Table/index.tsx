@@ -1,7 +1,11 @@
+import { Link } from 'react-router-dom';
+
 export const Table = () => {
   return (
     <div className="form-content">
-      <button className="form-btn btn btn-primary">Create new</button>
+      <button className="form-btn btn btn-primary">
+        <Link to="/deployment">Create new</Link>
+      </button>
       <table className="table">
         <thead className="table-head">
           <tr className="table-tr">

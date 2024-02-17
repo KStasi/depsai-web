@@ -1,5 +1,4 @@
 import { BalancesStore } from '@modules/wagmi/balances';
-import { Box } from '@mui/material';
 import { withStores } from '@store';
 import { WithStores } from '@types';
 import { observer } from 'mobx-react-lite';
@@ -10,11 +9,11 @@ const stores = {
 
 const BalancesView: WithStores<typeof stores> = ({ balances }) => {
   return (
-    <Box>
+    <div>
       <h4 className="sidebar-title">User Balance</h4>
       <ul className="sidebar-list">
         {balances.tokens.map(token => (
-          <li className="sidebar-item">
+          <li className="sidebar-item" key={token.name}>
             <span className="sidebar-address" title={token.address}>
               {token.address}
             </span>
@@ -25,7 +24,7 @@ const BalancesView: WithStores<typeof stores> = ({ balances }) => {
           </li>
         ))}
       </ul>
-    </Box>
+    </div>
   );
 };
 
