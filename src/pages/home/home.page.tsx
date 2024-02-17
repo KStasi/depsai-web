@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Connect } from '@components/example';
 import { Balances } from '@components/example/wagmi/balances';
 

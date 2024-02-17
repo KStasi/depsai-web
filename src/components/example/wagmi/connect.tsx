@@ -1,5 +1,4 @@
 import { WagmiStore } from '@modules/wagmi';
-import { Box, Button, Typography } from '@mui/material';
 import { withStores } from '@store';
 import { WithStores } from '@types';
 import { observer } from 'mobx-react-lite';
