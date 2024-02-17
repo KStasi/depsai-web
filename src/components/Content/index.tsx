@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 import { Header } from '@components/Header/index';
 
 interface ContentProps {
