@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 
 // import { makeExampleServer } from '@server/example';
-import ReactDOM from 'react-dom/client';
+import * as ReactDOM from 'react-dom/client';
 
 import { App } from './App';
 import 'reflect-metadata';
