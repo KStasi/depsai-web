@@ -1,4 +1,3 @@
-import { Deposit } from '@components/Deposit/index';
 import { Form } from '@components/Form/index';
 import { Header } from '@components/Header/index';
 import { Sidebar } from '@components/Sidebar/index';
@@ -10,8 +9,7 @@ export const HomePage = () => {
       <div className="content">
         <Header />
         <div className="form">
-          {/* <Form /> */}
-          <Deposit />
+          <Form />
           <button className="btn-link">
             <i className="btn-icon icon-back" />
             back
