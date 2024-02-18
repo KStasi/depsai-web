@@ -13,7 +13,7 @@ export const Dropdown = () => {
   return (
     <Select
       defaultValue={selectedOption}
-      onChange={setSelectedOption}
+      onChange={() => setSelectedOption}
       options={options}
       className="dropdown"
       classNamePrefix="dropdown"
