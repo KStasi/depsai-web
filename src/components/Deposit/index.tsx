@@ -20,7 +20,7 @@ const DepositView: WithStores<typeof stores> = ({ wagmi }) => {
     setButtonText('copied');
 
     try {
-      await navigator.clipboard.writeText('238234u2o387or9h745h374895o28c47r29oa');
+      await navigator.clipboard.writeText(paymentAddress);
 
       setTimeout(() => {
         setButtonText('copy to clipboard');
