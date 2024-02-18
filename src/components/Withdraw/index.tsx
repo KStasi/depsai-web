@@ -1,6 +1,6 @@
 import { Dropdown, options } from '@components/Dropdown';
 import { depsaiApi } from '@api';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { WagmiStore } from '@modules/wagmi';
 import { withStores } from '@store';
 import { WithStores } from '@types';
@@ -18,10 +18,8 @@ const WithdrawView: WithStores<typeof stores> = ({ wagmi }) => {
   const [amount, setAmount] = useState('0');
 
   const handleClick = async () => {
-    console.log('clicked');
     if (!wagmi.account.address) return;
-    console.log(wagmi.account.address, selectedOption.value, amount);
-    const response = await depsaiApi.withdraw(wagmi.account.address, selectedOption.value, amount);
+    await depsaiApi.withdraw(wagmi.account.address, selectedOption.value, amount);
   };
 
   return (
