@@ -1,5 +1,5 @@
-const apiHost = 'http://localhost:3000';
-// const apiHost = import.meta.env.VITE_API_HOST;
+// const apiHost = 'http://localhost:3000';
+const apiHost = import.meta.env.VITE_API_HOST;
 
 export type DeploymentDetails = {
   package: string;
