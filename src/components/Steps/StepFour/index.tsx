@@ -1,14 +1,21 @@
-import { depStore } from '@store/deployment.store';
+import { withStores } from '@store';
+import { DepStore } from '@store/deployment.store';
+import { WithStores } from '@types';
+import { observer } from 'mobx-react-lite';
 
 interface StepFourProps {
   next: () => void;
   prev: () => void;
 }
 
-export const StepFour: React.FC<StepFourProps> = ({ next, prev }) => {
-  const handleSubmit = (event: React.FormEvent) => {
+const stores = {
+  dep: DepStore
+};
+
+export const StepFourView: WithStores<typeof stores, StepFourProps> = ({ next, prev, dep }) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    depStore.handleSubmit();
+    await dep.handleSubmit();
     next();
   };
 
@@ -40,10 +47,12 @@ export const StepFour: React.FC<StepFourProps> = ({ next, prev }) => {
         <button className="btn-copy" onClick={() => prev()}>
           prev
         </button>
-        <button type="submit" className="btn-copy" onClick={() => next()}>
+        <button type="submit" className="btn-copy">
           next
         </button>
       </div>
     </form>
   );
 };
+
+export const StepFour = withStores(stores)(observer(StepFourView));

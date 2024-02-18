@@ -1,7 +1,12 @@
+import { DeployParams, depsaiApi } from '@api';
 import { makeAutoObservable } from 'mobx';
 
+import { RootStore } from './root.store';
+
 interface FormData {
-  amount: string;
+  image: string;
+  port: string;
+  runCommand: string;
   keys: string;
   values: string;
   minMemGib: number;
@@ -12,10 +17,20 @@ interface FormData {
 }
 
 export class DepStore {
+  goSteps = 0;
+
+  setGoSteps(value: number) {
+    console.log(this);
+    console.log('value', value);
+    this.goSteps = value;
+  }
+
   formData: FormData = {
-    amount: '',
+    image: '',
     keys: '',
     values: '',
+    port: '',
+    runCommand: '',
     minMemGib: 50,
     minStorageGib: 20,
     minCpuThreads: 33,
@@ -23,12 +38,20 @@ export class DepStore {
     budget: 23
   };
 
-  constructor() {
+  constructor(private rootStore: RootStore) {
     makeAutoObservable(this);
   }
 
-  setAmount(value: string) {
-    this.formData.amount = value;
+  setImage(value: string) {
+    this.formData.image = value;
+  }
+
+  setPort(value: string) {
+    this.formData.port = value;
+  }
+
+  setRunCommand(value: string) {
+    this.formData.runCommand = value;
   }
 
   setKeys(value: string) {
@@ -59,9 +82,26 @@ export class DepStore {
     this.formData.budget = value;
   }
 
-  handleSubmit() {
-    console.log('Submitted:', this.formData);
+  async handleSubmit() {
+    try {
+      const params: DeployParams = {
+        image: this.formData.image,
+        user: this.rootStore.wagmiStore.account.address!,
+        port: this.formData.port || '80',
+        command: this.formData.runCommand,
+        minMemGib: this.formData.minMemGib?.toString(),
+        minStorageGib: this.formData.minStorageGib?.toString(),
+        minCpuThreads: this.formData.minCpuThreads?.toString(),
+        minCpuCores: this.formData.minCpuCores?.toString(),
+        budget: this.formData.budget?.toString()
+      };
+
+      const { message } = await depsaiApi.deploy(params);
+
+      this.rootStore.snackStore.success(message);
+    } catch (e) {
+      this.rootStore.snackStore.error((e as Error).message);
+      throw e;
+    }
   }
 }
-
-export const depStore = new DepStore();

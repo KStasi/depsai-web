@@ -18,13 +18,15 @@ export class RootStore {
   colorModeStore = new ColorModeStore();
   wagmiStore = new WagmiStore();
   balancesStore = new BalancesStore();
-  depStore = new DepStore();
+  depStore = new DepStore(this);
   //#endregion
 
   snackStore = new SnackStore();
 
   constructor() {
     makeAutoObservable(this);
+
+    this.depStore = new DepStore(this);
 
     for (const [key, value] of Object.entries(this)) {
       RootStore.map.set(value.constructor.prototype.constructor, key as keyof RootStore);
