@@ -41,10 +41,10 @@ jobs:
         run: npm run build
         env:
           VITE_ENV: production
-          VITE_WEB3AUTH_CLIENT_ID: { secrets.VITE_WEB3AUTH_CLIENT_ID }
-          VITE_WEB3AUTH_CLIENT_VERIFIER_NAME: { secrets.VITE_WEB3AUTH_CLIENT_VERIFIER_NAME }
-          VITE_AUTH0_CLIENT_ID: { secrets.VITE_AUTH0_CLIENT_ID }
-          VITE_API_HOST: { secrets.VITE_API_HOST }
+          VITE_WEB3AUTH_CLIENT_ID: BAWCAhNKx_c6dQHu4-Yjb9T4_ke-qs2yhYjqAV4kucku6OegtnkEoC1Fz26V6jOGuqvbpSJuvZV0IwU12hbv9pg
+          VITE_WEB3AUTH_CLIENT_VERIFIER_NAME: depsai
+          VITE_AUTH0_CLIENT_ID: pYIPSS1nJW0q9rkZl8zUYt6RCMZpxDE3
+          VITE_API_HOST: https://depsai.com
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
