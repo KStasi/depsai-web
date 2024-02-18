@@ -13,6 +13,10 @@ const {
   VITE_AUTH0_CLIENT_ID: auth0ClientId
 } = import.meta.env;
 
+console.log('clientId', clientId);
+console.log('verifier', verifier);
+console.log('auth0ClientId', auth0ClientId);
+
 const WEB3_NETWORK = 'testnet';
 
 const Theme = {
@@ -28,7 +32,7 @@ const Theme = {
 };
 
 const DEF_CLIENT_ID =
-  'BAWCAhNKx_c6dQHu4-Yjb9T4_ke-qs2yhYjqAV4kucku6OegtnkEoC1Fz26V6jOGuqvbpSJuvZV0IwU12hbv9pg';
+  'BPi5PB_UiIZ-cPz1GtV5i1I2iOSOHuimiXBI0e-Oe_u6X3oVAbCiAZOTEBtTXw4tsluTITPqA8zMsfxIKMjiqNQ';
 
 export const Web3AuthConnectorInstance = (chains: Chain[]) => {
   // Create Web3Auth Instance
