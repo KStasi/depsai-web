@@ -21,10 +21,6 @@ export const Deposit = () => {
 
   return (
     <>
-      <button className="btn-link">
-        <i className="btn-icon icon-back" />
-        back
-      </button>
       <div className="form-content">
         <div className="table-container">
           <h4 className="form-header">Address</h4>
