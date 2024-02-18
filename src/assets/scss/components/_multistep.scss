@@ -6,20 +6,21 @@
   gap: 20px;
 
   .multistep-step {
-    border: 1px solid $text-color !important;
+    border: 2px solid $text-color !important;
     background-color: transparent !important;
     width: 40px;
     height: 40px;
     min-width: 40px;
+    cursor: default;
 
     &.active {
       border-color: $sup-color !important;
-      box-shadow: 0 0 12px $sup-color;
+      box-shadow: 0 0 25px $sup-color;
     }
 
     &.completed {
       border-color: $sup-color !important;
-      box-shadow: 0 0 12px $sup-color;
+      box-shadow: 0 0 25px $sup-color;
 
       span {
         display: none;
@@ -133,6 +134,12 @@
   font-weight: normal;
   font-size: 14px;
   padding: 5px 0;
+
+  input {
+    text-align: end;
+    border: none;
+    cursor: default;
+  }
 }
 
 .multistep-list-header {

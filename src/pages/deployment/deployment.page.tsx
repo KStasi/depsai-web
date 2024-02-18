@@ -5,9 +5,17 @@ import { StepFour } from '@components/Steps/StepFour';
 import { StepOne } from '@components/Steps/StepOne';
 import { StepThree } from '@components/Steps/StepThree';
 import { StepTwo } from '@components/Steps/StepTwo';
+import { withStores } from '@store';
+import { DepStore } from '@store/deployment.store';
+import { WithStores } from '@types';
+import { observer } from 'mobx-react-lite';
 import { Step, Stepper } from 'react-form-stepper';
 
-export const DeploymentPage = () => {
+const stores = {
+  dep: DepStore
+};
+
+const DeploymenView: WithStores<typeof stores> = () => {
   const [goSteps, setGoSteps] = useState(0);
 
   return (
@@ -29,3 +37,5 @@ export const DeploymentPage = () => {
     </div>
   );
 };
+
+export const DeploymentPage = withStores(stores)(observer(DeploymenView));
