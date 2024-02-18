@@ -28,7 +28,7 @@ const Theme = {
 };
 
 const DEF_CLIENT_ID =
-  'BPi5PB_UiIZ-cPz1GtV5i1I2iOSOHuimiXBI0e-Oe_u6X3oVAbCiAZOTEBtTXw4tsluTITPqA8zMsfxIKMjiqNQ';
+  'BAWCAhNKx_c6dQHu4-Yjb9T4_ke-qs2yhYjqAV4kucku6OegtnkEoC1Fz26V6jOGuqvbpSJuvZV0IwU12hbv9pg';
 
 export const Web3AuthConnectorInstance = (chains: Chain[]) => {
   // Create Web3Auth Instance
