@@ -3,6 +3,7 @@ import { makeAutoObservable } from 'mobx';
 import { getNetwork, getAccount, fetchBalance, watchNetwork, watchAccount } from 'wagmi/actions';
 
 import { Account, Network, Token } from '../types';
+import { depsaiApi } from '@api';
 
 export class BalancesStore {
   balances: Map<Token, string> = new Map();
@@ -62,7 +63,8 @@ export class BalancesStore {
       return;
     }
 
-    const address = this.account.address;
+    const address = await depsaiApi.getDepositAddress(this.account.address);
+    // const address = this.account.address;
 
     const balance = await fetchBalance({
       address,

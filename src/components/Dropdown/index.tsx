@@ -1,15 +1,21 @@
-import { useState } from 'react';
-
 import Select from 'react-select';
 
-const options = [
+type Option = {
+  value: string;
+  label: string;
+};
+export const options: Option[] = [
   { value: 'eth', label: 'ETH' },
-  { value: 'glm', label: 'GLM' }
+  { value: '0x33af15c79d64b85ba14aaffaa4577949104b22e8', label: 'GLM' }
 ];
 
-export const Dropdown = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
-
+export const Dropdown = ({
+  selectedOption,
+  setSelectedOption
+}: {
+  selectedOption: Option;
+  setSelectedOption: (option: Option) => void;
+}) => {
   return (
     <Select
       defaultValue={selectedOption}
