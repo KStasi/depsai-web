@@ -31,16 +31,16 @@ export const StepFourView: WithStores<typeof stores, StepFourProps> = ({ next, p
           <input type="text" value="$48.00" readOnly={true} />
         </li>
         <li className="multistep-item">
-          <span>promprtproe-ai-parser</span>
-          <span>$24.00</span>
+          <label>promprtproe-ai-parser</label>
+          <input type="text" value="$24.00" readOnly={true} />
         </li>
         <li className="multistep-item">
-          <span>promprtproe-ai-parser</span>
-          <span>$24.00</span>
+          <label>promprtproe-ai-parser2</label>
+          <input type="text" value="$24.00" readOnly={true} />
         </li>
         <li className="multistep-item multistep-list-footer">
-          <span>monthly app cost</span>
-          <span>$48.00</span>
+          <label>monthly app cost</label>
+          <input type="text" value="$48.00" readOnly={true} />
         </li>
       </ul>
       <div className="btn-copy-container">

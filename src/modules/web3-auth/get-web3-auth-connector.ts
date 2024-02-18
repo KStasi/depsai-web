@@ -13,7 +13,11 @@ const {
   VITE_AUTH0_CLIENT_ID: auth0ClientId
 } = import.meta.env;
 
-const WEB3_NETWORK = 'testnet';
+console.log('clientId', clientId);
+console.log('verifier', verifier);
+console.log('auth0ClientId', auth0ClientId);
+
+const WEB3_NETWORK = 'sapphire_devnet';
 
 const Theme = {
   primary: '#0074D9', // Example color value for 'primary'
