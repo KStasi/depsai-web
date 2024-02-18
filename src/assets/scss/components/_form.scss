@@ -57,10 +57,10 @@
   font-family: 'Orbitron', sans-serif;
   font-style: normal;
   font-weight: normal;
+  color: $text-color;
 
   &:focus {
     opacity: 1;
-    color: $text-color;
   }
 }
 

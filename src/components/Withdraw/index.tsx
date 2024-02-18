@@ -1,6 +1,7 @@
-import { Dropdown, options } from '@components/Dropdown';
-import { depsaiApi } from '@api';
 import { useState } from 'react';
+
+import { depsaiApi } from '@api';
+import { Dropdown, options } from '@components/Dropdown';
 import { WagmiStore } from '@modules/wagmi';
 import { withStores } from '@store';
 import { WithStores } from '@types';
@@ -18,15 +19,19 @@ const WithdrawView: WithStores<typeof stores> = ({ wagmi }) => {
   const [amount, setAmount] = useState('0');
 
   const handleClick = async () => {
-    if (!wagmi.account.address) return;
+    if (!wagmi.account.address) {
+      return;
+    }
     await depsaiApi.withdraw(wagmi.account.address, selectedOption.value, amount);
   };
 
   return (
     <div className="form-content">
       <div className="table form-wrapper">
-        <label className="form-label" htmlFor="amount">
-          Amount
+        <div className="form-grid-coin">
+          <label className="form-label" htmlFor="amount">
+            Amount
+          </label>
           <input
             className="form-input"
             type="string"
@@ -34,8 +39,8 @@ const WithdrawView: WithStores<typeof stores> = ({ wagmi }) => {
             value={amount}
             onChange={e => setAmount(e.target.value)}
           />
-        </label>
-        <Dropdown selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
+          <Dropdown selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
+        </div>
         <button className="btn btn-secondary btn-withdraw" onClick={handleClick}>
           Withdraw
         </button>
