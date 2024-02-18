@@ -1,9 +1,17 @@
 import { depsaiApi } from '@api';
 import { useEffect, useState } from 'react';
+import { WagmiStore } from '@modules/wagmi';
+import { withStores } from '@store';
+import { WithStores } from '@types';
+import { observer } from 'mobx-react-lite';
+
+const stores = {
+  wagmi: WagmiStore
+};
 
 import QRCode from 'react-qr-code';
 
-export const Deposit = () => {
+const DepositView: WithStores<typeof stores> = ({ wagmi }) => {
   const [buttonText, setButtonText] = useState('copy to clipboard');
   const [paymentAddress, setPaymentAddress] = useState('');
 
@@ -22,8 +30,9 @@ export const Deposit = () => {
   };
 
   useEffect(() => {
+    if (!wagmi.account.address) return;
     depsaiApi
-      .getDepositAddress()
+      .getDepositAddress(wagmi.account.address)
       .then(address => {
         setPaymentAddress(address);
       })
@@ -51,3 +60,5 @@ export const Deposit = () => {
     </>
   );
 };
+
+export const Deposit = withStores(stores)(observer(DepositView));

@@ -2,9 +2,9 @@ const apiHost = 'http://localhost:3000';
 // const apiHost = process.env.REACT_APP_API_HOST;
 
 export class DepsaiApi {
-  async getDepositAddress(user: string): Promise<string> {
+  async getDepositAddress(user: string): Promise<`0x${string}`> {
     const response = await fetch(`${apiHost}/deposit?user=${user}`);
-    return await response.text();
+    return (await response.text()) as `0x${string}`;
   }
 
   // dev: amount in token units
