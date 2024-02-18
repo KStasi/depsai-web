@@ -1,4 +1,9 @@
-export const StepFour = () => {
+interface StepFourProps {
+  next: () => void;
+  prev: () => void;
+}
+
+export const StepFour: React.FC<StepFourProps> = ({ next, prev }) => {
   return (
     <div className="table table-step">
       <h1 className="multistep-title">Step Four</h1>
@@ -23,6 +28,14 @@ export const StepFour = () => {
           <span>$48.00</span>
         </li>
       </ul>
+      <div className="btn-copy-container">
+        <button className="btn-copy" onClick={() => prev()}>
+          prev
+        </button>
+        <button className="btn-copy" onClick={() => next()}>
+          next
+        </button>
+      </div>
     </div>
   );
 };

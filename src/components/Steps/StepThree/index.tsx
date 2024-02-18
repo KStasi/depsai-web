@@ -1,4 +1,9 @@
-export const StepThree = () => {
+interface StepThreeProps {
+  next: () => void;
+  prev: () => void;
+}
+
+export const StepThree: React.FC<StepThreeProps> = ({ next, prev }) => {
   return (
     <div className="table table-step">
       <h1 className="multistep-title">Step Three</h1>
@@ -23,6 +28,14 @@ export const StepThree = () => {
           Budget
           <input className="form-input" type="text" id="budget" value={23} />
         </label>
+      </div>
+      <div className="btn-copy-container">
+        <button className="btn-copy" onClick={() => prev()}>
+          prev
+        </button>
+        <button className="btn-copy" onClick={() => next()}>
+          next
+        </button>
       </div>
     </div>
   );

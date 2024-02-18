@@ -23,6 +23,7 @@ export const Dropdown = ({
       options={options}
       className="dropdown"
       classNamePrefix="dropdown"
+      placeholder="Coin"
     />
   );
 };

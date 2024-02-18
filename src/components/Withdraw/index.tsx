@@ -39,7 +39,6 @@ const WithdrawView: WithStores<typeof stores> = ({ wagmi }) => {
         <button className="btn btn-secondary btn-withdraw" onClick={handleClick}>
           Withdraw
         </button>
-      </div>
     </div>
   );
 };
