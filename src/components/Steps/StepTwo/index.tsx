@@ -1,16 +1,9 @@
-import { withStores } from '@store';
-import { DepStore } from '@store/deployment.store';
-import { WithStores } from '@types';
-import { toJS } from 'mobx';
-import { observer } from 'mobx-react-lite';
+interface StepTwoProps {
+  next: () => void;
+  prev: () => void;
+}
 
-const stores = {
-  dep: DepStore
-};
-
-const StepTwoView: WithStores<typeof stores> = ({ dep }) => {
-  console.log(toJS(dep), 'dep');
-
+export const StepTwo: React.FC<StepTwoProps> = ({ next, prev }) => {
   return (
     <div className="table table-step">
       <h1 className="multistep-title">Step Two</h1>
@@ -28,8 +21,14 @@ const StepTwoView: WithStores<typeof stores> = ({ dep }) => {
         </label>
         <i className="btn-add">+</i>
       </div>
+      <div className="btn-copy-container">
+        <button className="btn-copy" onClick={() => prev()}>
+          prev
+        </button>
+        <button className="btn-copy" onClick={() => next()}>
+          next
+        </button>
+      </div>
     </div>
   );
 };
-
-export const StepTwo = withStores(stores)(observer(StepTwoView));

@@ -20,33 +20,10 @@ export const DeploymentPage = () => {
             <Step onClick={() => setGoSteps(2)} label="set config values" />
             <Step onClick={() => setGoSteps(3)} label="preview" />
           </Stepper>
-          {goSteps === 0 && (
-            <>
-              <StepOne />
-              <button onClick={() => setGoSteps(1)}>Next</button>
-            </>
-          )}
-          {goSteps === 1 && (
-            <>
-              <StepTwo />
-              <button onClick={() => setGoSteps(0)}>Next</button>
-              <button onClick={() => setGoSteps(2)}>Next</button>
-            </>
-          )}
-          {goSteps === 2 && (
-            <>
-              <StepThree />
-              <button onClick={() => setGoSteps(1)}>prev</button>
-              <button onClick={() => setGoSteps(3)}>Next</button>
-            </>
-          )}
-          {goSteps === 3 && (
-            <>
-              <StepFour />
-              <button onClick={() => setGoSteps(2)}>prev</button>
-              <button onClick={() => setGoSteps(4)}>Finish</button>
-            </>
-          )}
+          {goSteps === 0 && <StepOne next={() => setGoSteps(1)} />}
+          {goSteps === 1 && <StepTwo next={() => setGoSteps(2)} prev={() => setGoSteps(0)} />}
+          {goSteps === 2 && <StepThree next={() => setGoSteps(3)} prev={() => setGoSteps(1)} />}
+          {goSteps === 3 && <StepFour next={() => setGoSteps(4)} prev={() => setGoSteps(2)} />}
         </div>
       </Content>
     </div>
