@@ -3,6 +3,7 @@ import { BalancesStore, WagmiStore } from '@modules/wagmi';
 import { ConstructorOfValues } from '@types';
 import { makeAutoObservable } from 'mobx';
 
+import { DepStore } from './deployment.store';
 import { UserStore, CounterStore } from './example';
 import { SnackStore } from './snack.store';
 
@@ -18,6 +19,7 @@ export class RootStore {
   colorModeStore = new ColorModeStore();
   wagmiStore = new WagmiStore();
   balancesStore = new BalancesStore();
+  depStore = new DepStore();
   //#endregion
 
   snackStore = new SnackStore();

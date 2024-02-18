@@ -54,9 +54,13 @@
   padding: 0.5em;
   transition: opacity 0.2s ease;
   opacity: 0.5;
+  font-family: 'Orbitron', sans-serif;
+  font-style: normal;
+  font-weight: normal;
 
   &:focus {
     opacity: 1;
+    color: $text-color;
   }
 }
 
