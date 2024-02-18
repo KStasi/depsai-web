@@ -1,5 +1,5 @@
-const apiHost = 'http://localhost:3000';
-// const apiHost = process.env.REACT_APP_API_HOST;
+// const apiHost = 'http://localhost:3000';
+const apiHost = process.env.REACT_APP_API_HOST;
 
 export class DepsaiApi {
   async getDepositAddress(user: string): Promise<`0x${string}`> {
