@@ -1,6 +1,6 @@
-import { useState } from 'react';
-
-import { depStore } from '@store/deployment.store';
+import { withStores } from '@store';
+import { DepStore } from '@store/deployment.store';
+import { WithStores } from '@types';
 import { observer } from 'mobx-react-lite';
 
 interface StepTwoProps {
@@ -8,23 +8,22 @@ interface StepTwoProps {
   prev: () => void;
 }
 
-export const StepTwo: React.FC<StepTwoProps> = observer(({ next, prev }) => {
-  const [keys, setKeys] = useState('');
-  const [values, setValues] = useState('');
+const stores = {
+  dep: DepStore
+};
 
+export const StepTwoView: WithStores<typeof stores, StepTwoProps> = ({ next, prev, dep }) => {
   const handleKeysChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setKeys(event.target.value);
-    depStore.setKeys(event.target.value);
+    dep.setKeys(event.target.value);
   };
 
   const handleValuesChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValues(event.target.value);
-    depStore.setValues(event.target.value);
+    dep.setValues(event.target.value);
   };
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    depStore.handleSubmit();
+
     next();
   };
 
@@ -41,7 +40,7 @@ export const StepTwo: React.FC<StepTwoProps> = observer(({ next, prev }) => {
             className="form-input"
             type="text"
             id="keys"
-            value={keys}
+            value={dep.formData.keys}
             onChange={handleKeysChange}
           />
         </label>
@@ -51,7 +50,7 @@ export const StepTwo: React.FC<StepTwoProps> = observer(({ next, prev }) => {
             className="form-input"
             type="text"
             id="values"
-            value={values}
+            value={dep.formData.values}
             onChange={handleValuesChange}
           />
         </label>
@@ -67,4 +66,6 @@ export const StepTwo: React.FC<StepTwoProps> = observer(({ next, prev }) => {
       </div>
     </form>
   );
-});
+};
+
+export const StepTwo = withStores(stores)(observer(StepTwoView));

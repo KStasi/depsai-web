@@ -1,14 +1,20 @@
-import { depStore } from '@store/deployment.store';
+import { withStores } from '@store';
+import { DepStore } from '@store/deployment.store';
+import { WithStores } from '@types';
+import { observer } from 'mobx-react-lite';
 
 interface StepThreeProps {
   next: () => void;
   prev: () => void;
 }
 
-export const StepThree: React.FC<StepThreeProps> = ({ next, prev }) => {
+const stores = {
+  dep: DepStore
+};
+
+export const StepThreeView: WithStores<typeof stores, StepThreeProps> = ({ next, prev, dep }) => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    depStore.handleSubmit();
     next();
   };
 
@@ -22,8 +28,8 @@ export const StepThree: React.FC<StepThreeProps> = ({ next, prev }) => {
             className="form-input"
             type="text"
             id="minMemGib"
-            value={depStore.formData.minMemGib}
-            onChange={e => depStore.setMinMem(Number(e.target.value))}
+            value={dep.formData.minMemGib}
+            onChange={e => dep.setMinMem(Number(e.target.value))}
           />
         </label>
         <label className="form-label form-label-sm" htmlFor="minStorageGib">
@@ -32,8 +38,8 @@ export const StepThree: React.FC<StepThreeProps> = ({ next, prev }) => {
             className="form-input"
             type="text"
             id="minStorageGib"
-            value={depStore.formData.minStorageGib}
-            onChange={e => depStore.setMinStorage(Number(e.target.value))}
+            value={dep.formData.minStorageGib}
+            onChange={e => dep.setMinStorage(Number(e.target.value))}
           />
         </label>
         <label className="form-label form-label-sm" htmlFor="minCpuThreads">
@@ -42,8 +48,8 @@ export const StepThree: React.FC<StepThreeProps> = ({ next, prev }) => {
             className="form-input"
             type="text"
             id="minCpuThreads"
-            value={depStore.formData.minCpuThreads}
-            onChange={e => depStore.setMinCpuThreads(Number(e.target.value))}
+            value={dep.formData.minCpuThreads}
+            onChange={e => dep.setMinCpuThreads(Number(e.target.value))}
           />
         </label>
         <label className="form-label form-label-sm" htmlFor="minCpuCores">
@@ -52,8 +58,8 @@ export const StepThree: React.FC<StepThreeProps> = ({ next, prev }) => {
             className="form-input"
             type="text"
             id="minCpuCores"
-            value={depStore.formData.minCpuCores}
-            onChange={e => depStore.setMinCpuCores(Number(e.target.value))}
+            value={dep.formData.minCpuCores}
+            onChange={e => dep.setMinCpuCores(Number(e.target.value))}
           />
         </label>
         <label className="form-label form-label-sm" htmlFor="budget">
@@ -62,8 +68,8 @@ export const StepThree: React.FC<StepThreeProps> = ({ next, prev }) => {
             className="form-input"
             type="text"
             id="budget"
-            value={depStore.formData.budget}
-            onChange={e => depStore.setBudget(Number(e.target.value))}
+            value={dep.formData.budget}
+            onChange={e => dep.setBudget(Number(e.target.value))}
           />
         </label>
       </div>
@@ -78,3 +84,5 @@ export const StepThree: React.FC<StepThreeProps> = ({ next, prev }) => {
     </form>
   );
 };
+
+export const StepThree = withStores(stores)(observer(StepThreeView));

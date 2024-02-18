@@ -1,10 +1,11 @@
-import { DeploymentDetails, depsaiApi } from '@api';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+
+import { DeploymentDetails, depsaiApi } from '@api';
 import { WagmiStore } from '@modules/wagmi';
 import { withStores } from '@store';
 import { WithStores } from '@types';
 import { observer } from 'mobx-react-lite';
+import { Link } from 'react-router-dom';
 
 const stores = {
   wagmi: WagmiStore
@@ -17,13 +18,20 @@ const TableView: WithStores<typeof stores> = ({ wagmi }) => {
   const [deployments, setDeployments] = useState([] as DeploymentDetails[]);
 
   useEffect(() => {
-    if (!wagmi.account.address) return;
-    depsaiApi
-      .getDeployments(wagmi.account.address)
-      .then(d => {
-        setDeployments(d);
-      })
-      .catch(console.log);
+    const interval = setInterval(() => {
+      if (!wagmi.account.address) {
+        return;
+      }
+
+      depsaiApi
+        .getDeployments(wagmi.account.address)
+        .then(d => {
+          setDeployments(d);
+        })
+        .catch(console.log);
+    }, 1500);
+
+    return () => clearInterval(interval);
   });
 
   return (
@@ -35,23 +43,34 @@ const TableView: WithStores<typeof stores> = ({ wagmi }) => {
         <thead className="table-head">
           <tr className="table-tr">
             <th className="table-th">Name</th>
-            <th className="table-th">Status</th>
+            <th className="table-th">Package</th>
             <th className="table-th">Link</th>
-            <th className="table-th">Manage</th>
+
+            <th className="table-th">Status</th>
           </tr>
         </thead>
         <tbody className="table-body">
           {deployments.map((d, i) => (
             <tr className="table-tr" key={i}>
-              <td className="table-td">{shortifyHash(d.package)}</td>
-              <td className="table-td">{'Active'}</td>
+              <td className="table-td">{d.generatedId}</td>
               <td className="table-td">
-                <a href={d.link} className="table-link">
-                  link
-                </a>
+                {d.status !== 'deploying' ? shortifyHash(d.package) : 'Waiting for package...'}
               </td>
               <td className="table-td">
-                <button className="btn-manage">manage</button>
+                {d.status === 'deployed' ? (
+                  <a href={d.link} className="table-link">
+                    link
+                  </a>
+                ) : (
+                  'Waiting for deployment...'
+                )}
+              </td>
+              <td className="table-td">
+                {{
+                  deploying: 'Deploying...',
+                  'image created': 'Image builded',
+                  deployed: 'Deployed'
+                }[d.status] || 'Unknown'}
               </td>
             </tr>
           ))}
