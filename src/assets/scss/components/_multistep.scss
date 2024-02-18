@@ -1,106 +1,150 @@
 .multistep {
+  display: flex;
   width: 100%;
   height: 100%;
   position: relative;
+  gap: 20px;
 
-  ol {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  .multistep-step {
+    border: 1px solid $text-color !important;
+    background-color: transparent !important;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
 
-    li {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid $text-color !important;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      min-width: 50px;
-      line-height: 1 !important;
-      padding: 0;
-      color: $text-color;
+    &.active {
+      border-color: $sup-color !important;
+      box-shadow: 0 0 12px $sup-color;
+    }
 
-      &:hover {
-        color: $primary-color;
-      }
+    &.completed {
+      border-color: $sup-color !important;
+      box-shadow: 0 0 12px $sup-color;
 
-      &::before {
-        content: none !important;
+      span {
+        display: none;
       }
 
       &::after {
-        content: none !important;
-      }
-
-      //   step checked
-      &.go433304200 {
-        border-color: $sup-color !important;
-
-        &::after {
-          content: '' !important;
-          background-image: url("data:image/svg+xml,%3Csvg fill='none' height='512' viewBox='0 0 24 24' width='512' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath clip-rule='evenodd' d='m20.6136 5.64877c.4199.36742.458 1.00751.0845 1.42204l-10.5139 11.66979c-.37544.4167-1.02006.4432-1.42843.0588l-6.08403-5.7276c-.37942-.3572-.41574-.9524-.09021-1.3593.3592-.449 1.02811-.5108 1.4556-.1263l4.72039 4.2459c.41022.369 1.04179.336 1.41138-.0737l9.0435-10.02691c.3659-.40576.99-.44254 1.4012-.08272z' fill='%23ff0066' fill-rule='evenodd'/%3E%3C/svg%3E");
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: contain;
-          width: 20px;
-          height: 20px;
-          min-width: 20px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: $sup-color;
-        }
-
-        span {
-          display: none;
-        }
-      }
-
-      //   on step
-      &.go3842760039 {
-        border-color: $sup-color !important;
+        content: '' !important;
+        background-image: url("data:image/svg+xml,%3Csvg fill='none' height='512' viewBox='0 0 24 24' width='512' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath clip-rule='evenodd' d='m20.6136 5.64877c.4199.36742.458 1.00751.0845 1.42204l-10.5139 11.66979c-.37544.4167-1.02006.4432-1.42843.0588l-6.08403-5.7276c-.37942-.3572-.41574-.9524-.09021-1.3593.3592-.449 1.02811-.5108 1.4556-.1263l4.72039 4.2459c.41022.369 1.04179.336 1.41138-.0737l9.0435-10.02691c.3659-.40576.99-.44254 1.4012-.08272z' fill='%23ff0066' fill-rule='evenodd'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $sup-color;
       }
     }
   }
 
-  div {
-    &:first-child {
-      display: flex;
-      flex-direction: row !important;
-    }
+  .StepperContainer-0-2-1 {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
   }
 
-  button {
+  .StepMain-0-2-3 {
+    display: grid;
+    grid-template-columns: 40px auto;
+    gap: 20px;
+  }
+
+  .Connector-0-2-21 {
+    display: none;
+  }
+
+  .Label-0-2-11 {
     font-family: 'Orbitron', sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 12px;
-    color: $main-color;
-    background-color: $text-color;
-    border: 1px solid $main-color;
-    border-radius: 0;
-    padding: 5px 8px;
-
-    &:hover {
-      filter: invert(1);
-    }
-
-    &:focus {
-      outline: none;
-    }
-
-    &:first-child {
-      position: absolute;
-      top: -30px;
-      left: -50px;
-    }
-
-    &:last-child {
-      font-size: $text-size;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-    }
+    font-size: 14px;
+    color: $text-color;
+    text-transform: capitalize;
+    margin: 0;
+    white-space: nowrap;
   }
+}
+
+.multistep-title {
+  display: block;
+  font-family: 'Orbitron', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: $text-size-lg;
+  color: $text-color;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+.multistep-form {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.multistep-form-grid {
+  margin: 20px 0;
+  display: grid;
+  align-items: flex-end;
+  grid-template-columns: calc(50% - 58px) calc(50% - 58px) 35px;
+  column-gap: 40px;
+  width: 100%;
+}
+
+.multistep-form-list {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 80%;
+}
+
+.multistep-info {
+  display: block;
+  font-family: 'Orbitron', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  color: $text-color;
+  letter-spacing: 3px;
+  margin: 10px 0;
+}
+
+.multistep-list {
+  display: flex;
+  flex-direction: column;
+  background-color: $text-color;
+  padding: 20px;
+}
+
+.multistep-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-family: 'Orbitron', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  padding: 5px 0;
+}
+
+.multistep-list-header {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: capitalize;
+  border-bottom: 1px dotted $main-color;
+}
+
+.multistep-list-footer {
+  font-size: $text-size;
+  font-weight: bold;
+  text-transform: capitalize;
+  border-top: 1px dotted $main-color;
 }

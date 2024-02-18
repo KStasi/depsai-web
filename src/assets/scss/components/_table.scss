@@ -6,6 +6,12 @@
   border-collapse: collapse;
   width: 100%;
   background-color: rgba(0, 172, 237, 0.2);
+  table-layout: fixed;
+}
+
+.table-step {
+  padding: 20px;
+  min-height: calc(100vh - 250px);
 }
 
 .table-container {

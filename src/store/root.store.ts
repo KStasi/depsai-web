@@ -3,21 +3,22 @@ import { BalancesStore, WagmiStore } from '@modules/wagmi';
 import { ConstructorOfValues } from '@types';
 import { makeAutoObservable } from 'mobx';
 
-import { UserStore, CounterStore } from './example';
+import { DepStore } from './deployment.store';
 import { SnackStore } from './snack.store';
 
 export class RootStore {
   static map: Map<ConstructorOfValues<RootStore>, keyof RootStore> = new Map();
 
   //#region examples
-  userStore = new UserStore();
-  counterStore = new CounterStore();
+  // userStore = new UserStore();
+  // counterStore = new CounterStore();
   //#endregion
 
   //#region modules
   colorModeStore = new ColorModeStore();
   wagmiStore = new WagmiStore();
   balancesStore = new BalancesStore();
+  depStore = new DepStore();
   //#endregion
 
   snackStore = new SnackStore();

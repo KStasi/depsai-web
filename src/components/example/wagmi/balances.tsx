@@ -14,9 +14,9 @@ const BalancesView: WithStores<typeof stores> = ({ balances }) => {
       <ul className="sidebar-list">
         {balances.tokens.map(token => (
           <li className="sidebar-item" key={token.name}>
-            <span className="sidebar-address" title={token.address}>
+            {/* <span className="sidebar-address" title={token.address}>
               {token.address}
-            </span>
+            </span> */}
             <span className="sidebar-balance">
               {balances.getBalance(token)}
               <i className="sidebar-symbol">{token.symbol}</i>
