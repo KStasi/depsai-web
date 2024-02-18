@@ -1,4 +1,6 @@
 .dropdown {
+  width: 100px;
+
   .dropdown__control {
     height: 35px;
     min-height: 35px;
@@ -45,7 +47,8 @@
   }
 
   .dropdown__placeholder,
-  .dropdown__single-value {
+  .dropdown__single-value,
+  .dropdown__menu-notice {
     font-family: 'Orbitron', sans-serif;
     font-style: normal;
     font-weight: normal;

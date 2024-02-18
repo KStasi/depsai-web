@@ -142,3 +142,20 @@
   align-items: center;
   min-height: calc(100vh - 250px);
 }
+
+.form-grid-coin {
+  display: grid;
+  grid-template-columns: max-content 100px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 15px;
+
+  .form-label {
+    grid-column: span 2;
+  }
+
+  .form-input {
+    width: 100%;
+  }
+}
