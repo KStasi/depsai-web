@@ -1,5 +1,6 @@
-import { depsaiApi } from '@api';
 import { useEffect, useState } from 'react';
+
+import { depsaiApi } from '@api';
 import { WagmiStore } from '@modules/wagmi';
 import { withStores } from '@store';
 import { WithStores } from '@types';
@@ -30,7 +31,9 @@ const DepositView: WithStores<typeof stores> = ({ wagmi }) => {
   };
 
   useEffect(() => {
-    if (!wagmi.account.address) return;
+    if (!wagmi.account.address) {
+      return;
+    }
     depsaiApi
       .getDepositAddress(wagmi.account.address)
       .then(address => {
@@ -53,7 +56,7 @@ const DepositView: WithStores<typeof stores> = ({ wagmi }) => {
           </button>
           <span className="form-sublink">QRCode</span>
           <div className="form-qr-wrapper">
-            <QRCode value="https://akash.network/docs/architecture/overview/" />
+            <QRCode value={`ethereum:${paymentAddress}`} />
           </div>
         </div>
       </div>
