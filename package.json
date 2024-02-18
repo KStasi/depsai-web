@@ -1,8 +1,9 @@
 {
-  "name": "react-template",
+  "name": "depsai-web",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://kstasi.github.io/",
   "scripts": {
     "dev": "vite",
     "check": "tsc --noEmit",
