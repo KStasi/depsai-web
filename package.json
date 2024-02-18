@@ -38,6 +38,7 @@
     "react-multistep": "^5.5.9",
     "react-qr-code": "^2.0.12",
     "react-router-dom": "^6.12.1",
+    "react-select": "^5.8.0",
     "reflect-metadata": "^0.1.13",
     "sass": "^1.71.0",
     "styled-components": "^5.3.11",

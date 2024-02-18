@@ -6,7 +6,9 @@
   ol {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    width: 190px;
+    gap: 5vh;
 
     li {
       display: flex;
@@ -22,7 +24,9 @@
       color: $text-color;
 
       &:hover {
-        color: $primary-color;
+        color: $text-color;
+        border-color: $sup-color !important;
+        box-shadow: 0 0 12px $sup-color;
       }
 
       &::before {
@@ -132,6 +136,14 @@
   grid-template-columns: calc(50% - 58px) calc(50% - 58px) 35px;
   column-gap: 40px;
   width: 100%;
+}
+
+.multistep-form-list {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 80%;
 }
 
 .multistep-info {
