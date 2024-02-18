@@ -36,6 +36,7 @@
       //   step checked
       &.go433304200 {
         border-color: $sup-color !important;
+        box-shadow: 0 0 12px $sup-color;
 
         &::after {
           content: '' !important;
@@ -60,6 +61,7 @@
       //   on step
       &.go3842760039 {
         border-color: $sup-color !important;
+        box-shadow: 0 0 12px $sup-color;
       }
     }
   }

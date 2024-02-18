@@ -6,6 +6,7 @@ export const Withdraw = () => {
           Amount
         </label>
         <input className="form-input" type="text" id="amount" />
+        <button className="btn btn-secondary btn-withdraw">Withdraw</button>
       </div>
     </div>
   );
